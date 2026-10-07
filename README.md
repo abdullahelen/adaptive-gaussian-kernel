@@ -26,27 +26,13 @@ The Gaussian (RBF) kernel is the default choice for nonlinear SVMs, but its accu
 | **AG** (Eq. 16–20) | $K_{AG}(u,v)=\exp\left(-\dfrac{\xi+\Omega}{\delta+\varepsilon}\right)$, $\gamma=\dfrac{1}{\mathrm{std}\left(\lVert u-v\rVert^2\right)}$ **automatic** | Spread of the pairwise squared distances |
 | scikit-learn `gamma='scale'` | $\gamma=\dfrac{1}{p\cdot\mathrm{Var}(X)}$, automatic | Variance of all entries of the data matrix |
 
-### Equations from the paper (Section 4)
-
-$$K(u,v)=\exp\left(-\gamma\,\lVert u-v\rVert_2^2\right),\qquad \gamma=\frac{1}{2\rho^2} \tag{15}$$
-
-$$K_{AG}(u,v)=\exp\left(-\frac{\lVert u-v\rVert^2-\delta\left(\lVert u-v\rVert^2\right)+\Omega}{\delta\left(\lVert u-v\rVert^2\right)}\right) \tag{16}$$
-
-$$\Omega=\begin{cases}\left|\min\left(\lVert u-v\rVert^2-\delta(\lVert u-v\rVert^2)\right)\right|, & \min\left(\lVert u-v\rVert^2-\delta(\lVert u-v\rVert^2)\right)<0\\ 0, & \text{otherwise}\end{cases} \tag{17}$$
-
-$$K_{AG}(u,v)=\exp\left(-\frac{\lVert u-v\rVert^2-\delta(\lVert u-v\rVert^2)+\Omega}{\delta(\lVert u-v\rVert^2)+\varepsilon}\right) \tag{18}$$
-
-$$\xi=\lVert u-v\rVert^2-\delta\left(\lVert u-v\rVert^2\right) \tag{19}$$
-
-$$K_{AG}(u,v)=\exp\left(-\frac{\xi+\Omega}{\delta(\lVert u-v\rVert^2)+\varepsilon}\right) \tag{20}$$
-
-Here δ(·) is the standard deviation function and ε a negligible number that prevents division by zero.
-
-### What makes AG distinctive
+## What makes AG distinctive
 
 The training set contains self-pairs (‖u−u‖² = 0), so the minimum in Eq. 17 is −δ and **Ω = δ**. Eq. 20 then simplifies to
 
-$$K_{AG}(u,v)=\exp\left(-\frac{\lVert u-v\rVert^2}{\delta+\varepsilon}\right)$$
+```math
+K_{AG}(u,v)=\exp\left(-\frac{\lVert u-v\rVert^2}{\delta+\varepsilon}\right)
+```
 
 AG is therefore a member of the Gaussian family. Its contribution is the rule that decides **which** member to use:
 
