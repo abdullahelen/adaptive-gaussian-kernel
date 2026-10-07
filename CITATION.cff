@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "Adaptive Gaussian (AG) Kernel: Python and MATLAB implementation"
+type: software
+preferred-citation:
+  type: article
+  title: "An Adaptive Gaussian Kernel for Support Vector Machine"
+  authors:
+    - family-names: Elen
+      given-names: Abdullah
+    - family-names: Baş
+      given-names: Selçuk
+    - family-names: Közkurt
+      given-names: Cemil
+  journal: "Arabian Journal for Science and Engineering"
+  volume: 47
+  issue: 8
+  start: 10579
+  end: 10588
+  year: 2022
+  doi: "10.1007/s13369-022-06654-3"
